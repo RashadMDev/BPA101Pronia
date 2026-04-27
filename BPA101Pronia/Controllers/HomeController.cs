@@ -1,4 +1,5 @@
-﻿using BPA101Pronia.Models;
+﻿using BPA101Pronia.DAL;
+using BPA101Pronia.Models;
 using BPA101Pronia.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,11 @@ namespace BPA101Pronia.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly AppDbContext _db;
+        public HomeController(AppDbContext db)
+        {
+            _db = db;
+        }
         public IActionResult Index()
         {
             List<Product> products = new List<Product>
@@ -20,19 +26,35 @@ namespace BPA101Pronia.Controllers
                     new Product { Id = 8, Name = "Adidas Ultraboost 22", Price = 179.50m, ImageUrl = "1-2-570x633.jpg" }
                 };
 
-
-            List<Slider> sliders = new List<Slider>
-            {
-                new Slider { Id = 1, Title = "New Plant Soltan", Discount = 65, Desc = "Pronia, With 100% Natural, Organic & Plant Shop.", ImageUrl = "1-1-524x617.png" },
-                new Slider { Id = 2, Title = "New Plant Tural", Discount = 45, Desc = "Pronia, With 90% Natural, Organic & Plant Shop.", ImageUrl = "1-2-524x617.png" },
-                new Slider { Id = 3, Title = "New Plant Rashad", Discount = 25, Desc = "Pronia, With 80% Natural, Organic & Plant Shop.", ImageUrl = "1-1-524x617.png" },
-            };
+            List<Slider> sliders = _db.Sliders.ToList();
 
             HomeVM vM = new HomeVM()
             {
                 Products = products,
                 Sliders = sliders
             };
+
+            #region Add to db
+            //Slider slider = new Slider()
+            //{
+            //    Title = "New Plant Soltan",
+            //    Discount = 65,
+            //    Desc = "Pronia, With 100% Natural, Organic & Plant Shop.",
+            //    ImageUrl = "1-1-524x617.png"
+            //};
+
+            //Slider slider1 = new Slider()
+            //{
+            //    Title = "New Plant Soltan",
+            //    Discount = 65,
+            //    Desc = "Pronia, With 100% Natural, Organic & Plant Shop.",
+            //    ImageUrl = "1-1-524x617.png"
+            //};
+
+            //_db.Sliders.Add(slider);
+            //_db.Sliders.Add(slider1);
+            //_db.SaveChanges(); 
+            #endregion
 
             return View(vM);
         }
@@ -41,5 +63,5 @@ namespace BPA101Pronia.Controllers
         {
             return View();
         }
-        }
+    }
 }

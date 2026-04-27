@@ -1,3 +1,5 @@
+using BPA101Pronia.DAL;
+
 namespace BPA101Pronia
 {
     public class Program
@@ -6,6 +8,7 @@ namespace BPA101Pronia
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<AppDbContext>();
 
             var app = builder.Build();
             app.MapControllerRoute(
