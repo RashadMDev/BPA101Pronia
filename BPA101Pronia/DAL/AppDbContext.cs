@@ -5,11 +5,11 @@ namespace BPA101Pronia.DAL
 {
     public class AppDbContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=B3-0\\SQLEXPRESS;Database=BPA101ProniaDB;Trusted_Connection=True;TrustServerCertificate=true");
-        }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Image> Images { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Tag> Tags { get; set; }
     }
 }
