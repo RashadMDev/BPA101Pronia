@@ -11,5 +11,6 @@ namespace BPA101Pronia.DAL
         public DbSet<Image> Images { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<Review> Reviews { get; set; }
     }
 }

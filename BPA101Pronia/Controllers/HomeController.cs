@@ -16,7 +16,8 @@ namespace BPA101Pronia.Controllers
         public IActionResult Index()
         {
             // Sliders from DB
-            List<Slider> sliders = _db.Sliders.ToList();
+            List<Slider> sliders = _db.Sliders
+                .ToList();
 
             // Products from DB
             List<Product> products = _db.Products
@@ -32,9 +33,16 @@ namespace BPA101Pronia.Controllers
             return View(vM);
         }
 
-        public IActionResult Details(int id) 
+        public IActionResult Details(int id)
         {
-            return View();
+            Product singleProduct = _db.Products
+                .Include(p => p.Images)
+                .Include(p => p.Reviews)
+                .Include(p => p.Categories)
+                .Include(p => p.Tags)
+                .FirstOrDefault(p => p.Id == id);
+
+            return View(singleProduct);
         }
     }
 }
