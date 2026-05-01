@@ -1,0 +1,36 @@
+﻿@using BPA101Pronia.Models
+@model List<Slider>
+
+<div>
+    <h1>Slider Management</h1>
+    <a asp-controller="Slider" asp-action="Add" class="btn btn-primary">Add</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Description</th>
+                <th scope="col">Deleted Status</th>
+                <th scope="col">Image</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Slider slider in Model)
+            {
+                <tr>
+                    <th scope="row">@slider.Id</th>
+                    <td>@slider.Title</td>
+                    <td>@slider.Discount</td>
+                    <td>@slider.Desc</td>
+                    <td>@slider.IsDeleted</td>
+                    <td><img style="width: 100px; height: 100px;" src="~/assets/images/website-images/@slider.ImageUrl" alt="@slider.Title" /></td>
+                    <td><a class="btn btn-warning">Update</a></td>
+                    <td><a class="btn btn-danger">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
