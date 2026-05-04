@@ -24,10 +24,34 @@
                     <td>@slider.Title</td>
                     <td>@slider.Discount</td>
                     <td>@slider.Desc</td>
-                    <td>@slider.IsDeleted</td>
+                    @if (slider.IsDeleted == false)
+                    {
+                        <td class="text-success">Active</td>
+                    }
+                    else
+                    {
+                        <td class="text-danger">Inactive</td>
+                    }
                     <td><img style="width: 100px; height: 100px;" src="~/assets/images/website-images/@slider.ImageUrl" alt="@slider.Title" /></td>
-                    <td><a class="btn btn-warning">Update</a></td>
-                    <td><a class="btn btn-danger">Delete</a></td>
+                    <td>
+
+                        @if (slider.IsDeleted == false)
+                        {
+                            <form asp-controller="Slider" asp-action="Delete" asp-route-id="@slider.Id">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                            
+                        }
+                        else
+                        {
+                            <form asp-controller="Slider" asp-action="Restore" asp-route-id="@slider.Id">
+                                <button type="submit" class="btn btn-success">Restore</button>
+                            </form>
+                        }
+
+                        
+                    </td>
+                    <td><a asp-controller="Slider" asp-action="Update" asp-route-id="@slider.Id" class="btn btn-warning">Update</a></td>
                 </tr>
             }
         </tbody>

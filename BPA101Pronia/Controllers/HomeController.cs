@@ -17,10 +17,12 @@ namespace BPA101Pronia.Controllers
         {
             // Sliders from DB
             List<Slider> sliders = _db.Sliders
+                .Where(s => !s.IsDeleted)
                 .ToList();
 
             // Products from DB
             List<Product> products = _db.Products
+                .Where(p => !p.IsDeleted)
                 .Include(p => p.Images)
                 .ToList();
 
