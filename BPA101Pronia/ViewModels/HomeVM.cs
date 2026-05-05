@@ -1,4 +1,6 @@
-﻿namespace BPA101Pronia.Models.ViewModels
+﻿using BPA101Pronia.Models;
+
+namespace BPA101Pronia.ViewModels
 {
     public class HomeVM
     {

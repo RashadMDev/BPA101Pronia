@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="wwwroot\admin\" />
+    <Folder Include="wwwroot\uploads\sliders\" />
   </ItemGroup>
 
   <ItemGroup>

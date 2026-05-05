@@ -1,5 +1,6 @@
 ﻿using BPA101Pronia.Models.Base;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BPA101Pronia.Models
 {
@@ -20,7 +21,8 @@ namespace BPA101Pronia.Models
             MinLength(5, ErrorMessage = "Description must be at least 5 characters long")
         ]
         public string Desc { get; set; }
-        [Required(ErrorMessage = "Image URL is required")]
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
     }
 }

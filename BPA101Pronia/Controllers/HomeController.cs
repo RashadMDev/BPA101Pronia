@@ -1,6 +1,6 @@
 ﻿using BPA101Pronia.DAL;
 using BPA101Pronia.Models;
-using BPA101Pronia.Models.ViewModels;
+using BPA101Pronia.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

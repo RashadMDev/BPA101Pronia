@@ -1,5 +1,6 @@
 ﻿using BPA101Pronia.DAL;
 using BPA101Pronia.Models;
+using BPA101Pronia.Utilities.Image;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BPA101Pronia.Areas.Admin.Controllers
@@ -8,9 +9,11 @@ namespace BPA101Pronia.Areas.Admin.Controllers
     public class SliderController : Controller
     {
         private readonly AppDbContext _db;
-        public SliderController(AppDbContext db)
+        private readonly IWebHostEnvironment _env;
+        public SliderController(AppDbContext db, IWebHostEnvironment env)
         {
             _db = db;
+            _env = env;
         }
         #region Get Sliders
         public IActionResult Index()
@@ -20,20 +23,47 @@ namespace BPA101Pronia.Areas.Admin.Controllers
         }
         #endregion
 
-        #region Add Actions
+        #region Add Slider
+        // Create view
         public IActionResult Add()
         {
             return View();
         }
 
+        // Add to DB
         [HttpPost]
         public IActionResult Add(Slider slider)
         {
+            if (!slider.ImageFile.ContentType.Contains("image/"))
+            {
+                ModelState.AddModelError("ImageFile", "File must be an image");
+                return View();
+            }
+            if (!(slider.ImageFile.Length < 2 * 1024 * 1024))
+            {
+                ModelState.AddModelError("ImageFile", "Image file must be maximum 2MB");
+                return View();
+            }
+
+            #region MyRegion
+            //string path = Path.Combine(_env.WebRootPath, "uploads/sliders");
+            //string fileName = slider.ImageFile.FileName;
+            //string fullPath = Path.Combine(path, fileName);
+
+            //using (FileStream stream = new FileStream(fullPath, FileMode.Create))
+            //{
+            //    slider.ImageFile.CopyTo(stream);
+            //}
+            //slider.ImageUrl = fileName;
+
+            #endregion
+            slider.ImageUrl = slider.ImageFile.SaveImage("uploads/sliders", _env);
+
             if (!ModelState.IsValid) return View();
             _db.Sliders.Add(slider);
             _db.SaveChanges();
             return RedirectToAction(nameof(Index));
-        } 
+        }
         #endregion
 
         #region Hard Delete
@@ -47,6 +77,8 @@ namespace BPA101Pronia.Areas.Admin.Controllers
         //} 
         #endregion
 
+        #region Soft Delete And Restore
+        // Soft delete
         [HttpPost]
         public IActionResult Delete(int id)
         {
@@ -56,6 +88,7 @@ namespace BPA101Pronia.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // Restore
         [HttpPost]
         public IActionResult Restore(int id)
         {
@@ -64,13 +97,17 @@ namespace BPA101Pronia.Areas.Admin.Controllers
             _db.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
+        #endregion
 
+        #region Update Actions
+        // Update View
         public IActionResult Update(int id)
         {
             Slider slider = _db.Sliders.Find(id);
             return View(slider);
         }
 
+        // Update to DB
         [HttpPost]
         public IActionResult Update(Slider slider)
         {
@@ -82,5 +119,6 @@ namespace BPA101Pronia.Areas.Admin.Controllers
             _db.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
+        #endregion
     }
 }
