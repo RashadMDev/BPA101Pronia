@@ -9,5 +9,6 @@ namespace BPA101Pronia.Models
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public Product Product { get; set; }
         public int ProductId { get; set; }
+
     }
 }

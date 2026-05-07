@@ -1,0 +1,69 @@
+﻿@model List<Review>
+
+<div>
+    <a class="btn btn-primary" asp-controller="Review" asp-action="Create">Create Review</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Username</th>
+                <th scope="col">Content</th>
+                <th scope="col">Created Date</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Deleted Status</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (Review review in Model)
+                {
+                    <tr>
+                        <th scope="row">@review.Id</th>
+                        <td>@review.UserName</td>
+                        <td>@review.Content</td>
+                        <td>@review.CreatedDate.ToString("d MMM yyyy")</td>
+                        <td>
+                            @if (review.Product != null)
+                            {
+                                @review.Product.Name
+                            }
+                            else
+                            {
+                                <span class="text-muted">No Product</span>
+                            }
+                        </td>
+                        <td>
+                            @if (!review.IsDeleted)
+                            {
+                                <span class="text-success">Active</span>
+                            }
+                            else
+                            {
+                                <span class="text-danger">Inactive</span>
+                            }
+                        </td>
+                        <td>
+                            <a class="btn btn-warning" asp-controller="Review" asp-action="Update" asp-route-id="@review.Id">Update</a>
+                        </td>
+                        <td>
+                            @if (!review.IsDeleted)
+                            {
+                                <form asp-controller="Review" asp-action="Delete" asp-route-id="@review.Id">
+                                    <button class="btn btn-danger" type="submit">Delete</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <form asp-controller="Review" asp-action="Restore" asp-route-id="@review.Id">
+                                    <button class="btn btn-success" type="submit">Restore</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

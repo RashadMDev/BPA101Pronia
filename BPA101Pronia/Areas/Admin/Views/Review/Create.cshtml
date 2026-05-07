@@ -1,0 +1,29 @@
+﻿@model CreateReviewVM
+
+<div>
+    <h2>
+        Add Review
+    </h2>
+    <form asp-controller="Review" asp-action="Create" method="post">
+        <div class="form-group">
+            <label for="Username">Username</label>
+            <input asp-for="@Model.UserName" type="text" class="form-control" id="username" placeholder="Enter username">
+            <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Content">Content</label>
+            <input asp-for="@Model.Content" type="text" class="form-control" id="content" placeholder="Enter content">
+            <span asp-validation-for="@Model.Content" class="text-danger"></span>
+        </div>
+        <select asp-for="ProductId" class="form-select" aria-label="Default select example">
+            <option disabled selected>Select Product</option>
+            @{
+                foreach (Product product in ViewBag.Products)
+                {
+                    <option value="@product.Id">@product.Name</option>
+                }
+            }
+        </select>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+</div>

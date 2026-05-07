@@ -2063,9 +2063,10 @@ wwwroot\assets\scss\_slider.scss
 wwwroot\assets\scss\_testimonial.scss
 wwwroot\assets\scss\_variables.scss
 wwwroot\assets\scss\_wishlist.scss
-wwwroot\uploads\sliders\776-536x354.jpg
-wwwroot\uploads\sliders\pexels-molnartamasphotography-31776635.jpg
 wwwroot\uploads\sliders\54-536x354.jpg
+wwwroot\uploads\sliders\pexels-molnartamasphotography-31776635.jpg
+wwwroot\uploads\sliders\776-536x354.jpg
+wwwroot\uploads\sliders\dec7a7b1-39c0-47cb-856e-10b0f095b793776-536x354.jpg
 C:\Users\Rashad\Desktop\BPA101Pronia\BPA101Pronia\wwwroot\admin\css\sb-admin-2.css
 C:\Users\Rashad\Desktop\BPA101Pronia\BPA101Pronia\wwwroot\admin\css\sb-admin-2.min.css
 C:\Users\Rashad\Desktop\BPA101Pronia\BPA101Pronia\wwwroot\admin\img\undraw_posting_photo.svg
