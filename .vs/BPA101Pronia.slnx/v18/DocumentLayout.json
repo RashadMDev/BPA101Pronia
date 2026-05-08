@@ -1,12 +1,136 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Rashad\\Desktop\\BPA101Pronia\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{27516988-14B2-19AB-0E64-2DA6FEB881F1}|BPA101Pronia\\BPA101Pronia.csproj|c:\\users\\rashad\\desktop\\bpa101pronia\\bpa101pronia\\areas\\admin\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27516988-14B2-19AB-0E64-2DA6FEB881F1}|BPA101Pronia\\BPA101Pronia.csproj|solutionrelative:bpa101pronia\\areas\\admin\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27516988-14B2-19AB-0E64-2DA6FEB881F1}|BPA101Pronia\\BPA101Pronia.csproj|c:\\users\\rashad\\desktop\\bpa101pronia\\bpa101pronia\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27516988-14B2-19AB-0E64-2DA6FEB881F1}|BPA101Pronia\\BPA101Pronia.csproj|solutionrelative:bpa101pronia\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27516988-14B2-19AB-0E64-2DA6FEB881F1}|BPA101Pronia\\BPA101Pronia.csproj|c:\\users\\rashad\\desktop\\bpa101pronia\\bpa101pronia\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27516988-14B2-19AB-0E64-2DA6FEB881F1}|BPA101Pronia\\BPA101Pronia.csproj|solutionrelative:bpa101pronia\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27516988-14B2-19AB-0E64-2DA6FEB881F1}|BPA101Pronia\\BPA101Pronia.csproj|c:\\users\\rashad\\desktop\\bpa101pronia\\bpa101pronia\\areas\\admin\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27516988-14B2-19AB-0E64-2DA6FEB881F1}|BPA101Pronia\\BPA101Pronia.csproj|solutionrelative:bpa101pronia\\areas\\admin\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27516988-14B2-19AB-0E64-2DA6FEB881F1}|BPA101Pronia\\BPA101Pronia.csproj|c:\\users\\rashad\\desktop\\bpa101pronia\\bpa101pronia\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27516988-14B2-19AB-0E64-2DA6FEB881F1}|BPA101Pronia\\BPA101Pronia.csproj|solutionrelative:bpa101pronia\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27516988-14B2-19AB-0E64-2DA6FEB881F1}|BPA101Pronia\\BPA101Pronia.csproj|c:\\users\\rashad\\desktop\\bpa101pronia\\bpa101pronia\\areas\\admin\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27516988-14B2-19AB-0E64-2DA6FEB881F1}|BPA101Pronia\\BPA101Pronia.csproj|solutionrelative:bpa101pronia\\areas\\admin\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27516988-14B2-19AB-0E64-2DA6FEB881F1}|BPA101Pronia\\BPA101Pronia.csproj|c:\\users\\rashad\\desktop\\bpa101pronia\\bpa101pronia\\areas\\admin\\views\\review\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27516988-14B2-19AB-0E64-2DA6FEB881F1}|BPA101Pronia\\BPA101Pronia.csproj|solutionrelative:bpa101pronia\\areas\\admin\\views\\review\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 173,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\Rashad\\Desktop\\BPA101Pronia\\BPA101Pronia\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "BPA101Pronia\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\Rashad\\Desktop\\BPA101Pronia\\BPA101Pronia\\Models\\Product.cs",
+              "RelativeToolTip": "BPA101Pronia\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T04:59:25.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\Rashad\\Desktop\\BPA101Pronia\\BPA101Pronia\\Areas\\Admin\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "BPA101Pronia\\Areas\\Admin\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\Rashad\\Desktop\\BPA101Pronia\\BPA101Pronia\\Areas\\Admin\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "BPA101Pronia\\Areas\\Admin\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-08T04:58:56.273Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Rashad\\Desktop\\BPA101Pronia\\BPA101Pronia\\Areas\\Admin\\Views\\Product\\Create.cshtml",
+              "RelativeDocumentMoniker": "BPA101Pronia\\Areas\\Admin\\Views\\Product\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Rashad\\Desktop\\BPA101Pronia\\BPA101Pronia\\Areas\\Admin\\Views\\Product\\Create.cshtml",
+              "RelativeToolTip": "BPA101Pronia\\Areas\\Admin\\Views\\Product\\Create.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-08T04:58:27.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Rashad\\Desktop\\BPA101Pronia\\BPA101Pronia\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "BPA101Pronia\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "C:\\Users\\Rashad\\Desktop\\BPA101Pronia\\BPA101Pronia\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "BPA101Pronia\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAGIBAAAAAAAAAAAAAHEAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-08T04:39:13.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Rashad\\Desktop\\BPA101Pronia\\BPA101Pronia\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "RelativeDocumentMoniker": "BPA101Pronia\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Rashad\\Desktop\\BPA101Pronia\\BPA101Pronia\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "RelativeToolTip": "BPA101Pronia\\Areas\\Admin\\Views\\Product\\Index.cshtml",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAACQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-08T04:25:26.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\Rashad\\Desktop\\BPA101Pronia\\BPA101Pronia\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "BPA101Pronia\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\Rashad\\Desktop\\BPA101Pronia\\BPA101Pronia\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "BPA101Pronia\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAwwDAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T04:25:14.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Rashad\\Desktop\\BPA101Pronia\\BPA101Pronia\\Areas\\Admin\\Views\\Review\\Index.cshtml",
+              "RelativeDocumentMoniker": "BPA101Pronia\\Areas\\Admin\\Views\\Review\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Rashad\\Desktop\\BPA101Pronia\\BPA101Pronia\\Areas\\Admin\\Views\\Review\\Index.cshtml",
+              "RelativeToolTip": "BPA101Pronia\\Areas\\Admin\\Views\\Review\\Index.cshtml",
+              "ViewState": "AgIAACYAAAAAAAAAAAAqwEQAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-08T04:25:48.754Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

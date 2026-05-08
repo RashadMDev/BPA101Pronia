@@ -1,0 +1,81 @@
+﻿@model List<Product>
+
+<div>
+    <a class="btn btn-primary" asp-controller="Product" asp-action="Create">Create Product</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Description</th>
+                <th scope="col">SKU</th>
+                <th scope="col">Categories</th>
+                <th scope="col">Tags</th>
+                <th scope="col">Deleted Status</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (Product product in Model)
+                {
+                    <tr>
+                        <th scope="row">@product.Id</th>
+                        <td>@product.Name</td>
+                        <td>@product.Price</td>
+                        <td>@product.Description</td>
+                        <td>@product.SKU</td>
+                        <td>
+                            @{
+                                foreach (Category category in product.Categories)
+                                {
+                                    @category.Name
+                                    <br />
+                                }
+                            }
+                        </td>
+                        <td>
+                            @{
+                                foreach (Tag tag in product.Tags)
+                                {
+                                    @tag.Name
+                                    <br />
+                                }
+                            }
+                        </td>
+                        <td>
+                            @if (!product.IsDeleted)
+                            {
+                                <span class="text-success">Active</span>
+                            }
+                            else
+                            {
+                                <span class="text-danger">Inactive</span>
+                            }
+                        </td>
+                        @if (!product.IsDeleted)
+                        {
+                            <td>
+                                <form asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id">
+                                    <button class="btn btn-danger" type="submit">Delete</button>
+                                </form>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <form asp-controller="Product" asp-action="Restore" asp-route-id="@product.Id">
+                                    <button class="btn btn-success" type="submit">Restore</button>
+                                </form>
+                            </td>
+                        }
+                        <td>
+                            <a class="btn btn-warning" asp-controller="Product" asp-action="Update" asp-route-id="@product.Id">Update</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
