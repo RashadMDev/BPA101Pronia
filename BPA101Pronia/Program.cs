@@ -1,4 +1,6 @@
 using BPA101Pronia.DAL;
+using BPA101Pronia.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace BPA101Pronia
@@ -14,6 +16,18 @@ namespace BPA101Pronia
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
+            {
+                opt.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.";
+                opt.User.RequireUniqueEmail = true;
+
+                opt.Password.RequireDigit = true;
+                opt.Password.RequireLowercase = true;
+                opt.Password.RequireUppercase = true;
+                opt.Password.RequireNonAlphanumeric = true;
+                opt.Password.RequiredLength = 8;
+            }).AddEntityFrameworkStores<AppDbContext>();
+
             var app = builder.Build();
 
             app.MapControllerRoute(
@@ -24,7 +38,7 @@ namespace BPA101Pronia
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-            
+
 
             app.UseStaticFiles();
 

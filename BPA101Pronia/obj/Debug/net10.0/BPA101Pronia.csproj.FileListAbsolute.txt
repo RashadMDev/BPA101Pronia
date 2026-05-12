@@ -1876,3 +1876,4 @@ C:\Users\Rashad\Desktop\BPA101Pronia\BPA101Pronia\obj\Debug\net10.0\compressed\f
 C:\Users\Rashad\Desktop\BPA101Pronia\BPA101Pronia\obj\Debug\net10.0\compressed\2gxg0xxmoq-{0}-33z6q9z31h-33z6q9z31h.gz
 C:\Users\Rashad\Desktop\BPA101Pronia\BPA101Pronia\obj\Debug\net10.0\compressed\lqe7nhpwwb-{0}-rszun4iext-rszun4iext.gz
 C:\Users\Rashad\Desktop\BPA101Pronia\BPA101Pronia\obj\Debug\net10.0\compressed\0wi7sk9us4-{0}-l5o0ocrnlv-l5o0ocrnlv.gz
+C:\Users\Rashad\Desktop\BPA101Pronia\BPA101Pronia\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
