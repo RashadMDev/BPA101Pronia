@@ -1,11 +1,13 @@
 ﻿using BPA101Pronia.Areas.Admin.ViewModels.Reviews;
 using BPA101Pronia.DAL;
 using BPA101Pronia.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BPA101Pronia.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin, SuperAdmin")]
     [Area("Admin")]
     public class ReviewController : Controller
     {

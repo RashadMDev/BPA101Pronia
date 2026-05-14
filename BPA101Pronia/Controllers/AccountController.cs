@@ -9,16 +9,17 @@ namespace BPA101Pronia.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        private readonly RoleManager<IdentityRole> _roleManager;
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
         }
         public IActionResult Register()
         {
             return View();
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Register(RegisterVM registerVM)
@@ -34,6 +35,8 @@ namespace BPA101Pronia.Controllers
             };
 
             IdentityResult result = await _userManager.CreateAsync(user, registerVM.Password);
+
+            await _userManager.AddToRoleAsync(user, "User");
 
             if (!result.Succeeded)
             {
@@ -70,9 +73,12 @@ namespace BPA101Pronia.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-        public IActionResult Logout()
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
         {
-            return View();
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

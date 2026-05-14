@@ -4,7 +4,9 @@ namespace BPA101Pronia.Models
 {
     public class AppUser : IdentityUser
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        public string? Name { get; set; }
+        public string? Surname { get; set; }
+        public bool IsAdmin { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

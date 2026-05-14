@@ -1,10 +1,12 @@
 ﻿using BPA101Pronia.DAL;
 using BPA101Pronia.Models;
 using BPA101Pronia.Utilities.Image;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BPA101Pronia.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin, SuperAdmin")]
     [Area("Admin")]
     public class SliderController : Controller
     {
@@ -79,6 +81,7 @@ namespace BPA101Pronia.Areas.Admin.Controllers
 
         #region Soft Delete And Restore
         // Soft delete
+        [Authorize(Roles = "SuperAdmin")]
         [HttpPost]
         public IActionResult Delete(int id)
         {

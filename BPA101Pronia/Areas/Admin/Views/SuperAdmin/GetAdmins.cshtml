@@ -1,29 +1,26 @@
-﻿@model List<Slider>
+﻿@model List<AppUser>
 
 <div>
-    <h1>Slider Management</h1>
-    <a asp-controller="Slider" asp-action="Add" class="btn btn-primary">Add</a>
+    <h1>Admin Management</h1>
+    <a asp-controller="SuperAdmin" asp-action="CreateAdmin" class="btn btn-primary">Add Admin</a>
     <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">Discount</th>
-                <th scope="col">Description</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
                 <th scope="col">Deleted Status</th>
-                <th scope="col">Image</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (Slider slider in Model)
+            @foreach (AppUser user in Model)
             {
                 <tr>
-                    <th scope="row">@slider.Id</th>
-                    <td>@slider.Title</td>
-                    <td>@slider.Discount</td>
-                    <td>@slider.Desc</td>
-                    @if (slider.IsDeleted == false)
+                    <th scope="row">@user.Id</th>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    @if (user.IsDeleted is false)
                     {
                         <td class="text-success">Active</td>
                     }
@@ -31,23 +28,22 @@
                     {
                         <td class="text-danger">Inactive</td>
                     }
-                    <td><img style="width: 100px; height: 100px;" src="~/uploads/sliders/@slider.ImageUrl" alt="@slider.Title" /></td>
                     <td>
                         @{
                             if (User.IsInRole("SuperAdmin"))
                             {
-                                if (slider.IsDeleted == false)
+                                if (user.IsDeleted == false)
                                 {
 
 
-                                    <form asp-controller="Slider" asp-action="Delete" asp-route-id="@slider.Id">
+                                    <form asp-controller="SuperAdmin" asp-action="Delete" asp-route-id="@user.Id">
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
                             
                                 }
                                 else
                                 {
-                                    <form asp-controller="Slider" asp-action="Restore" asp-route-id="@slider.Id">
+                                    <form asp-controller="Slider" asp-action="Restore" asp-route-id="@user.Id">
                                         <button type="submit" class="btn btn-success">Restore</button>
                                     </form>
                                 }
@@ -57,13 +53,9 @@
                                 <p class="text-danger">Access Denied</p>
                             }
                         }
-
-
-                        
-
                         
                     </td>
-                    <td><a asp-controller="Slider" asp-action="Update" asp-route-id="@slider.Id" class="btn btn-warning">Update</a></td>
+                    <td><a asp-controller="Slider" asp-action="Update" asp-route-id="@user.Id" class="btn btn-warning">Update</a></td>
                 </tr>
             }
         </tbody>
