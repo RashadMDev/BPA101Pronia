@@ -1,0 +1,82 @@
+@model UpdateProductVM
+
+<div>
+      <h2>
+            Update Product
+      </h2>
+      <form asp-controller="Product" asp-action="Update" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                  <label for="Name">Name</label>
+                  <input asp-for="@Model.Name" type="text" class="form-control" id="Name" placeholder="Enter Name">
+                  <span asp-validation-for="@Model.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                  <label for="Price">Price</label>
+                  <input asp-for="@Model.Price" type="number" class="form-control" id="Price" placeholder="Enter Price">
+                  <span asp-validation-for="@Model.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                  <label for="Price">Description</label>
+                  <input asp-for="@Model.Description" type="text" class="form-control" id="Description"
+                         placeholder="Enter Description">
+                  <span asp-validation-for="@Model.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                  <select asp-for="CategoryIds" class="form-select" multiple aria-label="Multiple select Categories">
+                        <option disabled selected>Choose Categories</option>
+                        @{
+                              foreach (Category category in ViewBag.Categories)
+                              {
+                                    <option value="@category.Id">@category.Name</option>
+                              }
+                        }
+                  </select>
+
+                  <select asp-for="TagIds" class="form-select" multiple aria-label="Multiple select Tags">
+                        <option disabled selected>Choose Tags</option>
+                        @{
+                              foreach (Tag tag in ViewBag.Tags)
+                              {
+                                    <option value="@tag.Id">@tag.Name</option>
+                              }
+                        }
+                  </select>
+            </div>
+            <div class="form-group">
+                  <div class="d-flex">
+                        <img width="100px" height="100px"
+                             src="~/uploads/products/@Model.OldImages?.FirstOrDefault(i => i.IsPrimary)?.ImgUrl" />
+                  </div>
+                  <label for="PrimaryImage">Primary Image</label>
+                  <input asp-for="@Model.PrimaryImage" type="file" class="form-control" id="PrimaryImage">
+                  <span asp-validation-for="@Model.PrimaryImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                  @foreach (var image in Model.OldImages?.Where(i => !i.IsPrimary))
+                  {
+                        <div class="d-flex">
+                              <input asp-for="ImageUrls" type="hidden" name="ImageUrls" value="@image.ImgUrl" />
+                              <img width="70px" height="70px" src="~/uploads/products/@image?.ImgUrl" />
+                              <button class="delete btn btn-danger">x</button>
+                        </div>
+
+                  }
+
+                  <label for="PrimaryImage">Images</label>
+                  <input asp-for="@Model.Images" multiple type="file" class="form-control" id="Images">
+                  <span asp-validation-for="@Model.Images" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+</div>
+<script>
+      var deleteBtns = document.querySelectorAll(".delete");
+      deleteBtns.forEach(btn => {
+            btn.addEventListener("click", function (e) {
+                  e.preventDefault()
+                  btn.parentElement.remove()
+            })
+      })
+</script>

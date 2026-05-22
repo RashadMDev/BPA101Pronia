@@ -1,6 +1,6 @@
 ﻿using BPA101Pronia.DAL;
 using BPA101Pronia.Models;
-using BPA101Pronia.Utilities.Image;
+using BPA101Pronia.Utilities.ImageFile;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,72 +34,65 @@ namespace BPA101Pronia.Areas.Admin.Controllers
 
         // Add to DB
         [HttpPost]
-        public IActionResult Add(Slider slider)
+        public async Task<IActionResult> Add(Slider slider)
         {
+            if (slider.ImageFile is null)
+            {
+                ModelState.AddModelError("ImageFile", "Image file is required");
+                return View();
+            }
             if (!slider.ImageFile.ContentType.Contains("image/"))
             {
-                ModelState.AddModelError("ImageFile", "File must be an image");
+                ModelState.AddModelError("ImageFile", "Only image files are allowed");
                 return View();
             }
-            if (!(slider.ImageFile.Length < 2 * 1024 * 1024))
+            if (slider.ImageFile.Length > 2 * 1024 * 1024)
             {
-                ModelState.AddModelError("ImageFile", "Image file must be maximum 2MB");
+                ModelState.AddModelError("ImageFile", "Image file size must be less than 2MB");
                 return View();
             }
 
-            #region MyRegion
-            //string path = Path.Combine(_env.WebRootPath, "uploads/sliders");
-            //string fileName = slider.ImageFile.FileName;
-            //string fullPath = Path.Combine(path, fileName);
-
-            //using (FileStream stream = new FileStream(fullPath, FileMode.Create))
-            //{
-            //    slider.ImageFile.CopyTo(stream);
-            //}
-            //slider.ImageUrl = fileName;
-
-            #endregion
-            slider.ImageUrl = slider.ImageFile.SaveImage("uploads/sliders", _env);
-
+            slider.ImageUrl = slider.ImageFile.SaveImage(_env, "uploads/sliders");
             if (!ModelState.IsValid) return View();
-            _db.Sliders.Add(slider);
-            _db.SaveChanges();
+            await _db.Sliders.AddAsync(slider);
+            await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         #endregion
 
         #region Hard Delete
-        //[HttpPost]
-        //public IActionResult Delete(int id)
-        //{
-        //    Slider slider = _db.Sliders.Find(id);
-        //    _db.Sliders.Remove(slider);
-        //    _db.SaveChanges();
-        //    return RedirectToAction(nameof(Index));
-        //} 
-        #endregion
-
-        #region Soft Delete And Restore
-        // Soft delete
-        [Authorize(Roles = "SuperAdmin")]
         [HttpPost]
         public IActionResult Delete(int id)
         {
             Slider slider = _db.Sliders.Find(id);
-            slider.IsDeleted = true;
+            slider.ImageUrl = slider.ImageUrl.DeleteImage(_env, "uploads/sliders");
+            _db.Sliders.Remove(slider);
             _db.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
+        #endregion
 
-        // Restore
-        [HttpPost]
-        public IActionResult Restore(int id)
-        {
-            Slider slider = _db.Sliders.Find(id);
-            slider.IsDeleted = false;
-            _db.SaveChanges();
-            return RedirectToAction(nameof(Index));
-        }
+        #region Soft Delete And Restore
+        // Soft delete
+        // [Authorize(Roles = "SuperAdmin")]
+        // [HttpPost]
+        // public IActionResult Delete(int id)
+        // {
+        //     Slider slider = _db.Sliders.Find(id);
+        //     slider.IsDeleted = true;
+        //     _db.SaveChanges();
+        //     return RedirectToAction(nameof(Index));
+        // }
+
+        // // Restore
+        // [HttpPost]
+        // public IActionResult Restore(int id)
+        // {
+        //     Slider slider = _db.Sliders.Find(id);
+        //     slider.IsDeleted = false;
+        //     _db.SaveChanges();
+        //     return RedirectToAction(nameof(Index));
+        // }
         #endregion
 
         #region Update Actions

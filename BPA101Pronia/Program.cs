@@ -30,14 +30,22 @@ namespace BPA101Pronia
 
             var app = builder.Build();
 
+            if (!app.Environment.IsDevelopment())
+            {
+                app.UseExceptionHandler("/Error");
+            }
+
+            app.UseStatusCodePagesWithReExecute("/Error/{0}");
+
             app.MapControllerRoute(
                 name: "areas",
                 pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
-                );
+            );
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}"
+            );
 
 
             app.UseStaticFiles();
